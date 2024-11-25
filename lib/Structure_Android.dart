@@ -64,7 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: (){},
             backgroundColor: Colors.blue,
             child: const Icon(Icons.home),
-            )
+            ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
