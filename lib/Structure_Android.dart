@@ -66,6 +66,23 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.home),
             ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Accueil',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: 'Compte',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.build_circle_sharp),
+            label: 'Paramètre',
+          ),
+        ], 
+        backgroundColor: Colors.blue,
+        selectedItemColor: Colors.black87,
+        ),
     );
   }
 }
