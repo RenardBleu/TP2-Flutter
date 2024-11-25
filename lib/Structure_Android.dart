@@ -12,9 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter TP2'),
     );
   }
 }
@@ -29,31 +30,41 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Icon _coeur = Icon(Icons.favorite_border, color: Colors.white,);
-  bool _likeBool = false;
+  Icon _account = Icon(Icons.account_circle, color: Colors.yellow,);
+  bool likeBool = false;
 
   void _likeThis(){
     setState(() {
-      if (_likeBool){
+      if (likeBool){
         _coeur = Icon(Icons.favorite_border, color: Colors.white,);
-        bool _likeBool = false;
+        bool likeBool = false;
       }
       else {
-        _coeur = Icon(Icons.favorite, color: Colors.white,);
-        bool _likeBool = true;
+        _coeur = Icon(Icons.favorite, color: Colors.red,);
+        bool likeBool = true;
       }
     });
   }
 
   @override
+  // On bluid en utilisant 'Scaffold' ici la appbar 
+  // qui contient un titre et 2 bouton 'like' et 'account'
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
           actions: <Widget>[
-            IconButton(onPressed: _likeThis, icon: _coeur)
+            IconButton(onPressed: _likeThis, icon: _coeur),
+            IconButton(onPressed: _likeThis, icon: _account)
         ],
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
         ),
+        body: Center(child: Text('Regard ce super bouton là =)')),
+        floatingActionButton:  FloatingActionButton(
+            onPressed: (){},
+            backgroundColor: Colors.blue,
+            child: const Icon(Icons.home),
+            )
     );
   }
 }
