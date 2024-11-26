@@ -31,7 +31,35 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Icon _coeur = Icon(Icons.favorite_border, color: Colors.white,);
   Icon _account = Icon(Icons.account_circle, color: Colors.yellow,);
+  int _selectdIndex = 0;
+  String _affichage = ' Accueil';
+  final _textPage = 'Vous êtes sur :';
   bool likeBool = false;
+
+   void _itemClique(int index){
+    setState(() {
+      _selectdIndex = index;
+      switch(_selectdIndex){
+        case 0:
+        {
+          _affichage = ' Accueil';
+        }
+        case 1:
+        {
+          _affichage = ' Profile';
+        }
+        case 2:
+        {
+          _affichage = ' Message';
+        }
+        case 3:
+        {
+          _affichage = ' Paramètre';
+        }
+        break;
+      }
+    });
+   }
 
   void _likeThis(){
     setState(() {
@@ -55,33 +83,91 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
           actions: <Widget>[
             IconButton(onPressed: _likeThis, icon: _coeur),
-            IconButton(onPressed: _likeThis, icon: _account)
+            IconButton(onPressed: () {}, icon: _account)
         ],
         backgroundColor: Colors.blue,
         ),
-        body: Center(child: Text('Regard ce super bouton là =)')),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text(
+                  'Menu de navigation =)',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.home),
+                title: const Text('Accueil'),
+                onTap: (){},
+              ),
+              ListTile(
+                leading: const Icon(Icons.account_circle),
+                title: const Text('Profile'),
+                onTap: (){},
+              ),
+              ListTile(
+                leading: const Icon(Icons.message),
+                title: const Text('Message'),
+                onTap: (){},
+              ),
+              ListTile(
+                leading: const Icon(Icons.build_circle_sharp),
+                title: const Text('Paramètre'),
+                onTap: (){},
+              ),
+            ],
+          ),
+        ),
+        body: Center(
+          child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Flexible(
+                            child: Text('Regard ces supers boutons là =)')
+                          ),
+                    Text(_textPage + _affichage),
+                  ],
+                ),
+              ),
         floatingActionButton:  FloatingActionButton(
-            onPressed: (){},
-            backgroundColor: Colors.blue,
-            child: const Icon(Icons.home),
-            ),
+          onPressed: (){},
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.home),
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Accueil',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Compte',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.build_circle_sharp),
-            label: 'Paramètre',
-          ),
-        ], 
-        backgroundColor: Colors.blue,
-        selectedItemColor: Colors.black87,
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Accueil',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.message),
+              label: 'Message',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.build_circle_sharp),
+              label: 'Paramètre',
+            ),
+          ],
+          currentIndex: _selectdIndex, 
+          onTap: _itemClique,
+          backgroundColor: Colors.blue,
+          selectedItemColor: Colors.black87,
         ),
     );
   }
