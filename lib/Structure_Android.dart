@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Icon _account = Icon(Icons.account_circle, color: Colors.yellow,);
   int _selectdIndex = 0;
   String _affichage = ' Accueil';
+  String _images = 'https://friendsofanimals.org/wp-content/uploads/2023/12/foxfb.png';
   final _textPage = 'Vous êtes sur :';
   bool likeBool = false;
 
@@ -43,18 +45,24 @@ class _MyHomePageState extends State<MyHomePage> {
         case 0:
         {
           _affichage = ' Accueil';
+          _images = 'https://friendsofanimals.org/wp-content/uploads/2023/12/foxfb.png';
         }
         case 1:
         {
           _affichage = ' Profile';
+          _images = 'https://images.stockcake.com/public/e/1/9/e19eab4f-3030-4113-82aa-4e9fec401f56_large/fox-in-snow-stockcake.jpg';
+
         }
         case 2:
         {
           _affichage = ' Message';
+          _images = 'https://as2.ftcdn.net/v2/jpg/00/76/47/97/1000_F_76479767_gv1iIKiZ0e9K1gw8YLGx5HBAQRHufrFB.jpg';
+
         }
         case 3:
         {
           _affichage = ' Paramètre';
+          _images = 'https://miro.medium.com/v2/resize:fit:1400/1*jj818i6pGhnuWjwGOi8v8g.jpeg';
         }
         break;
       }
@@ -106,22 +114,42 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 leading: const Icon(Icons.home),
                 title: const Text('Accueil'),
-                onTap: (){},
+                onTap: (){
+                  setState(() {
+                    _affichage = ' Accueil';
+                    _images = 'https://friendsofanimals.org/wp-content/uploads/2023/12/foxfb.png';
+                  });
+                },
               ),
               ListTile(
                 leading: const Icon(Icons.account_circle),
                 title: const Text('Profile'),
-                onTap: (){},
+                onTap: (){
+                  setState(() {
+                    _affichage = ' Profile';
+                    _images = 'https://images.stockcake.com/public/e/1/9/e19eab4f-3030-4113-82aa-4e9fec401f56_large/fox-in-snow-stockcake.jpg';
+                  });
+                },
               ),
               ListTile(
                 leading: const Icon(Icons.message),
                 title: const Text('Message'),
-                onTap: (){},
+                onTap: (){
+                  setState(() {
+                    _affichage = ' Message';
+                    _images = 'https://as2.ftcdn.net/v2/jpg/00/76/47/97/1000_F_76479767_gv1iIKiZ0e9K1gw8YLGx5HBAQRHufrFB.jpg';
+                  });
+                },
               ),
               ListTile(
                 leading: const Icon(Icons.build_circle_sharp),
                 title: const Text('Paramètre'),
-                onTap: (){},
+                onTap: (){
+                  setState(() {
+                    _affichage = ' Paramètre';
+                    _images = 'https://miro.medium.com/v2/resize:fit:1400/1*jj818i6pGhnuWjwGOi8v8g.jpeg';
+                  });
+                },
               ),
             ],
           ),
@@ -131,10 +159,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    Image.asset('images/image_pdp_2025.png'),
                     const Flexible(
                             child: Text('Regard ces supers boutons là =)')
                           ),
                     Text(_textPage + _affichage),
+                    const Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Text('L\'image en dessous provient du web'),
+                    ),
+                    Image.network(_images)
                   ],
                 ),
               ),
