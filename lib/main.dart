@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -76,70 +77,76 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Row(
         children: <Widget>[
           Container(
-            height: 300,
+            padding: const EdgeInsets.all(20),
+            height: 450,
+            margin: const EdgeInsets.all(30),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(8)),
               color: Colors.blue.shade100
             ),
             child: Column(
-            children : <Widget>[
-              const Text(
-                'Gateau aux fruit type fraise de couleur rouge',
-                style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Lexend',
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                )),
-              const Text(
-                'Alors du coup c\'est un gateau... \nAvec des fraises... Et genre c\'est un fruit... \nEt en faite elles sont rouges. \nVasi le gateau ma donnée pendant que je dev la page', 
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Lexend',
-                fontSize: 15,
-                )),
-              Row(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Icon(Icons.star, color: Colors.blue.shade400),
-                      Icon(Icons.star, color: Colors.blue.shade400),
-                      Icon(Icons.star, color: Colors.blue.shade400),
-                      const Icon(Icons.star),
-                      const Icon(Icons.star),
-                    ],
-                  ),
-                  const Text('170 Note')
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Icon(Icons.dining_rounded, color: Colors.blue.shade400),
-                      const Text('Préparation'),
-                      const Text('25min')
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Icon(Icons.timer, color: Colors.blue.shade400),
-                      const Text('Cuisson'),
-                      const Text('1hr')
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Icon(Icons.accessibility, color: Colors.blue.shade400),
-                      const Text('Nb. Pers'),
-                      const Text('4-6')
-                    ],
-                  )
-                ],
-              ),
-            ],
-          ),
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children : <Widget>[
+                const Text(
+                  'Gateau aux fruit de type fraise de couleur rouge',
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Lexend',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  )),
+                  Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  child: const Text(
+                  textAlign: TextAlign.center,
+                  'Alors du coup c\'est un gateau... \nAvec des fraises... Et genre c\'est un fruit... \nEt en faite elles sont rouges. \nVasi le gateau ma donnée pendant que je dev la page',
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Lexend',
+                  fontSize: 15,
+                  )),
+                ),
+                Row(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Icon(Icons.star, color: Colors.blue.shade400),
+                        Icon(Icons.star, color: Colors.blue.shade400),
+                        Icon(Icons.star, color: Colors.blue.shade400),
+                        const Icon(Icons.star),
+                        const Icon(Icons.star),
+                      ],
+                    ),
+                    const Text('170 Note')
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Icon(Icons.dining_rounded, color: Colors.blue.shade400),
+                        const Text('Préparation'),
+                        const Text('25min')
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Icon(Icons.timer, color: Colors.blue.shade400),
+                        const Text('Cuisson'),
+                        const Text('1hr')
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Icon(Icons.accessibility, color: Colors.blue.shade400),
+                        const Text('Nb. Pers'),
+                        const Text('4-6')
+                      ],
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
           Image.asset('images/cake.jpeg',fit: BoxFit.cover, width: 700, height: 1080,)
         ],
