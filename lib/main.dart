@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   margin: const EdgeInsets.only(top: 10),
                   child: const Text(
                   textAlign: TextAlign.center,
-                  'Alors du coup c\'est un gateau... \nAvec des fraises... Et genre c\'est un fruit... \nEt en faite elles sont rouges. \nVasi le gateau ma donnée pendant que je dev la page',
+                  'Alors du coup c\'est un gateau... \nAvec des fraises... Et genre c\'est un fruit... \nEt en faite elles sont rouges. \nVasi le gateau ma donnée pendant que je dev la page\n(F*ck l\'image sur mobile)',
                   style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Lexend',
@@ -122,27 +122,36 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Row(
                   children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Icon(Icons.dining_rounded, color: Colors.blue.shade400),
-                        const Text('Préparation'),
-                        const Text('25min')
-                      ],
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: Column(
+                        children: <Widget>[
+                          Icon(Icons.dining_rounded, color: Colors.blue.shade400, size: 40,),
+                          const Text('Préparation'),
+                          const Text('25min')
+                        ],
+                      ),
                     ),
-                    Column(
-                      children: <Widget>[
-                        Icon(Icons.timer, color: Colors.blue.shade400),
-                        const Text('Cuisson'),
-                        const Text('1hr')
-                      ],
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: Column(
+                        children: <Widget>[
+                          Icon(Icons.timer, color: Colors.blue.shade400, size: 40,),
+                          const Text('Cuisson'),
+                          const Text('1hr')
+                        ],
+                      ),
                     ),
-                    Column(
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: Column(
                       children: <Widget>[
-                        Icon(Icons.accessibility, color: Colors.blue.shade400),
+                        Icon(Icons.accessibility, color: Colors.blue.shade400, size: 40,),
                         const Text('Nb. Pers'),
                         const Text('4-6')
                       ],
                     )
+                    ),
                   ],
                 ),
               ],
