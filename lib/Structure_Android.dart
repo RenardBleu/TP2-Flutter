@@ -159,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Image.asset('images/image_pdp_2025.png'),
+                    Image.asset('assets/images/image_pdp_2025.png'),
                     const Flexible(
                             child: Text('Regard ces supers boutons là =)')
                           ),

@@ -74,11 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Row(
+      body: Column(
         children: <Widget>[
+          Image.asset('assets/images/cake.jpeg',fit: BoxFit.cover, height: 265,),
           Container(
             padding: const EdgeInsets.all(20),
-            height: 450,
+            height: 400,
             margin: const EdgeInsets.all(30),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -107,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Row(
                       children: <Widget>[
@@ -121,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       margin: const EdgeInsets.all(10),
@@ -157,7 +160,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          Image.asset('images/cake.jpeg',fit: BoxFit.cover, width: 700, height: 1080,)
         ],
       ) // This trailing comma makes auto-formatting nicer for build methods.
     );
