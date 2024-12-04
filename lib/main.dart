@@ -105,7 +105,7 @@ class _MySecondPageState extends State<MySecondPage> {
                   margin: const EdgeInsets.only(top: 10),
                   child: const Text(
                   textAlign: TextAlign.center,
-                  'Alors du coup c\'est un gateau... \nAvec des fraises... Et genre c\'est un fruit... \nEt en faite elles sont rouges. \nVasi le gateau ma donnée pendant que je dev la page',
+                  'Alors du coup c\'est un gateau... \nAvec des fraises... Et genre c\'est un fruit... \nEt en faite elles sont rouges. \nVasi le gateau ma donnée fain pendant que je dev la page',
                   style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Lexend',

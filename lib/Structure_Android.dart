@@ -1,3 +1,4 @@
+// ignore_for_file: unused_import
 import 'package:flutter/material.dart';
 import 'dart:io';
 
@@ -30,8 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Icon _coeur = Icon(Icons.favorite_border, color: Colors.white,);
-  Icon _account = Icon(Icons.account_circle, color: Colors.yellow,);
+  Icon _coeur = const Icon(Icons.favorite_border, color: Colors.white,);
+  Icon _account = const Icon(Icons.account_circle, color: Colors.yellow,);
   int _selectdIndex = 0;
   String _affichage = ' Accueil';
   String _images = 'https://friendsofanimals.org/wp-content/uploads/2023/12/foxfb.png';
@@ -72,12 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void _likeThis(){
     setState(() {
       if (likeBool){
-        _coeur = Icon(Icons.favorite_border, color: Colors.white,);
-        bool likeBool = false;
+        _coeur = const Icon(Icons.favorite_border, color: Colors.white,);
       }
       else {
-        _coeur = Icon(Icons.favorite, color: Colors.red,);
-        bool likeBool = true;
+        _coeur = const Icon(Icons.favorite, color: Colors.red,);
       }
     });
   }
