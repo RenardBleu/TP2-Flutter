@@ -32,13 +32,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter TP2 Projet 1'),
+      home: const MySecondPage(title: 'Flutter TP2 Projet 1'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MySecondPage extends StatefulWidget {
+  const MySecondPage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -52,10 +52,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MySecondPage> createState() => _MySecondPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MySecondPageState extends State<MySecondPage> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -74,9 +74,14 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Column(
+      body: 
+      Column(
         children: <Widget>[
-          Image.asset('assets/images/cake.jpeg',fit: BoxFit.cover, height: 265,),
+          SizedBox(
+            height: 200.0,
+            width: 1000,
+            child: Image.asset('assets/images/cake.jpeg',fit: BoxFit.cover,)
+          ),
           Container(
             padding: const EdgeInsets.all(20),
             height: 400,
@@ -100,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   margin: const EdgeInsets.only(top: 10),
                   child: const Text(
                   textAlign: TextAlign.center,
-                  'Alors du coup c\'est un gateau... \nAvec des fraises... Et genre c\'est un fruit... \nEt en faite elles sont rouges. \nVasi le gateau ma donnée pendant que je dev la page\n(F*ck l\'image sur mobile)',
+                  'Alors du coup c\'est un gateau... \nAvec des fraises... Et genre c\'est un fruit... \nEt en faite elles sont rouges. \nVasi le gateau ma donnée pendant que je dev la page',
                   style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Lexend',
@@ -160,8 +165,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          FloatingActionButton.extended(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            elevation: 1,
+            icon: const Icon(Icons.arrow_back),
+            label: const Text("Précédent"),),
         ],
-      ) // This trailing comma makes auto-formatting nicer for build methods.
+      )
     );
   }
 }
